@@ -14,8 +14,8 @@ async function bootstrap() {
   app.setGlobalPrefix(globalPrefix);
 
   const config = new DocumentBuilder()
-    .setTitle('Example API')
-    .setDescription('Example API description')
+    .setTitle('User API')
+    .setDescription('This is an user API for stuyding purposes')
     .setVersion('1.0')
     .build();
 
