@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@user-api-monorepo/shared": ["libs/shared/src/index.ts"],
-      "@user-api-monorepo/users": ["libs/contexts/users/src/index.ts"]
+      "@user-api-monorepo/shared/*": ["libs/shared/src/lib/*"],
+      "@user-api-monorepo/users/*": ["libs/contexts/users/src/lib/users/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
