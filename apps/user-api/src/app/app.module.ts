@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersController } from './users/users.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserTypeormEntity } from '@user-api-monorepo/users/infrastructure/entities/user-typeorm.entity';
 import { config } from './config/config';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -19,8 +19,9 @@ import { config } from './config/config';
       synchronize: config.synchronize, // Only for development
       logging: config.logging,
     }),
+    UsersModule,
   ],
-  controllers: [AppController, UsersController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
