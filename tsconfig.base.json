@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@user-api-monorepo/shared-kernel/*": [
+        "libs/contexts/shared-kernel/src/lib/*"
+      ],
       "@user-api-monorepo/shared/*": ["libs/shared/src/lib/*"],
       "@user-api-monorepo/users/*": ["libs/contexts/users/src/lib/users/*"]
     }
