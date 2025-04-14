@@ -116,3 +116,8 @@ This project follows the Command Query Responsibility Segregation (CQRS) pattern
 
 - Commands are used to change the state of the application (e.g., creating, updating, or deleting a product).
 - Queries are used to retrieve data without modifying the state (e.g., getting product details).
+
+This project also is using DDD
+
+- Layer separation: domain, application and infrastructure
+- Tactical patterns: entity, value-object, repository

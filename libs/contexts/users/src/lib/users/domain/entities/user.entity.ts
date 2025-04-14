@@ -17,16 +17,16 @@ export class UserEntity extends Entity<UserEntity, UserPrimitive> {
     email,
     password,
   }: {
-    id: string;
-    name: string;
-    email: string;
-    password: string;
+    id: UserIdValueObject;
+    name: UserNameValueObject;
+    email: UserEmailValueObject;
+    password: UserPasswordValueObject;
   }) {
     super();
-    this.id = new UserIdValueObject(id);
-    this.name = new UserNameValueObject(name);
-    this.email = new UserEmailValueObject(email);
-    this.password = new UserPasswordValueObject(password);
+    this.id = id;
+    this.name = name;
+    this.email = email;
+    this.password = password;
   }
 
   toPrimitives(): UserPrimitive {
