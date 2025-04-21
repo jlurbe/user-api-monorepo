@@ -31,9 +31,9 @@ export class UserTypeormRepository
     }
   }
 
-  async saveUser(user: SaveUserDTO): Promise<void> {
+  async saveUser(user: SaveUserDTO): Promise<UserPrimitive> {
     try {
-      await this.save(user);
+      return this.save(user);
     } catch (error) {
       console.log(error);
       throw new DatabaseError(

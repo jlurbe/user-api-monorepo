@@ -6,12 +6,14 @@ import { UserEmailValueObject } from '../value-objects/user-email.value-object';
 import { UserPasswordValueObject } from '../value-objects/user-password.value-object';
 import { CreateUserCommand } from '../../application/commands/create-user.command';
 import { v4 as uuid } from 'uuid';
+import { UpdateUserCommand } from '../../application/commands/update-user.command';
+import { SaveUserDTO } from '../dto/save-user.dto';
 
 export class UserEntity extends Entity<UserEntity, UserPrimitive> {
   readonly id: UserIdValueObject;
-  readonly name: UserNameValueObject;
-  readonly email: UserEmailValueObject;
-  readonly password: UserPasswordValueObject;
+  name: UserNameValueObject;
+  email: UserEmailValueObject;
+  password: UserPasswordValueObject;
 
   constructor({
     id,
@@ -29,6 +31,37 @@ export class UserEntity extends Entity<UserEntity, UserPrimitive> {
     this.name = name;
     this.email = email;
     this.password = password;
+  }
+
+  changeName(userName: string): SaveUserDTO {
+    this.name = new UserNameValueObject(userName);
+
+    return this.toPersistenceDTO(true, false, false);
+  }
+
+  changeEmail(userEmail: string): SaveUserDTO {
+    this.email = new UserEmailValueObject(userEmail);
+
+    return this.toPersistenceDTO(false, true, false);
+  }
+
+  async changePassword(userPassword: string): Promise<SaveUserDTO> {
+    this.password = await UserPasswordValueObject.create(userPassword);
+
+    return this.toPersistenceDTO(false, false, true);
+  }
+
+  private toPersistenceDTO(
+    name: boolean,
+    email: boolean,
+    password: boolean,
+  ): SaveUserDTO {
+    return {
+      id: this.id._value,
+      ...(name && { name: this.name._value }),
+      ...(email && { email: this.email._value }),
+      ...(password && { password: this.password._value }),
+    };
   }
 
   toPrimitives(): UserPrimitive {

@@ -103,12 +103,13 @@ And join the Nx community:
 
 ## Pending
 
-- Use mapper to remove password from responses
-- Use of pattern value object
-- Use of log in entire application
-- protect API with maybe JWT
-- Use of kafka
-- Improve error control and log
+- [x] Use mapper to remove password from responses. Made through entities
+- [x] Use of pattern value object
+- [] Use of log in entire application
+- [] protect API with maybe JWT
+- [] Use of kafka
+- [] Improve error control. Now all errors are 500, including the 400
+- [] Check and improve log
 
 ## Notes
 

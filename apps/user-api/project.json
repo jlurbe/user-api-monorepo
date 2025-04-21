@@ -29,6 +29,7 @@
       ],
       "options": {
         "buildTarget": "user-api:build",
+        "inspect": true,
         "runBuildTargetDependencies": false
       },
       "configurations": {
