@@ -12,7 +12,9 @@ export class CreateUserCommandHandler {
     try {
       const user = await UserEntity.fromCreateUserCommand(createUserCommand);
 
-      return this.userRepository.saveUser(user.toPrimitives());
+      await this.userRepository.saveUser(user.toPrimitives());
+
+      return user.toPrimitives();
     } catch (error) {
       if (error instanceof BaseError) {
         throw error;

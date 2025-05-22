@@ -6,7 +6,6 @@ import { UserEmailValueObject } from '../value-objects/user-email.value-object';
 import { UserPasswordValueObject } from '../value-objects/user-password.value-object';
 import { CreateUserCommand } from '../../application/commands/create-user.command';
 import { v4 as uuid } from 'uuid';
-import { UpdateUserCommand } from '../../application/commands/update-user.command';
 import { SaveUserDTO } from '../dto/save-user.dto';
 
 export class UserEntity extends Entity<UserEntity, UserPrimitive> {
